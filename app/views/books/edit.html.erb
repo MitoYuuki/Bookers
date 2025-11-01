@@ -1,0 +1,30 @@
+    <h1><b>Editing Book</b></h1>
+
+    <!-- バリデーションエラーメッセージ（失敗時のみ表示） -->
+      <% if @book.errors.any? %>
+        <%= @book.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li>error: <%= message %></li>
+            <% end %>
+        </ul>
+      <% end %>
+
+    <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
+      <%= form_with model: @book do |f| %>
+          <div class = "Newbook">
+            <%= f.label :title, "Title" %>
+            <%= f.text_field :title, class: "text-field" %>
+          </div>
+
+        <div class = "Newbook">
+            <%= f.label :body, "Body" %>
+            <%= f.text_area :body, class: "text-area" %>
+        </div>
+
+        <%= f.submit "Update Book" %>
+
+      <% end %>
+    <% end %>
+    <%= link_to 'Show', book_path(@book) %> | <%= link_to 'Back', books_path %>
+  

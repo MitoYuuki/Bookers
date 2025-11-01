@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  height: auto;
+  width: auto;
+ }
+
+body {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+h1{
+  margin: 18px 0;
+}
+
+p {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+
+.link{
+  margin: 33px;
+}
+
+.book-title {
+  padding-right: 20px; /* タイトルとボディの間にスペース */
+}
+
+.book-body {
+  padding-right: 20px; /* 必要に応じて余白調整 */
+}
+
+@media screen and (max-width: 468px) {
+  .responsive-text {   
+    display: block; /* ブロック要素として扱う */
+    white-space: normal; /* 折り返しを有効にする */
+    word-break: break-word; /* 長い単語も折り返し */
+  }
+}
+
+/*以下、indexページ用*/
+.nav-list-item {
+  height: 24px;
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+}
+
+table {
+  width: auto;
+  border-collapse: collapse;
+  
+  font-family: Arial, sans-serif;
+}
+  
+tr{
+  height: 26px;
+}
+
+h2{
+  height: 18px;
+  margin: 16px 0;
+}
+
+.Newbook{
+  margin-bottom: 10px;
+}
+
+/*以下、editページ用*/
+
+.text-field{
+  display: block;
+  margin-bottom: 10px;
+}
+
+.text-area{
+  display: block;
+  margin-bottom: 10px;
+}
+
+/*以下、フラッシュメッセージ用*/
+.flash-message {
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin: 16px 0px;
+}
+ 
+.flash-message.notice {
+  background-color: #bcdfff;
+  color: #0067C0;
+  border: solid 1px #0067C0;
+}
+ 
+.flash-message.alert {
+  background-color: #ffd4d1;
+  color: #930403;
+  border: solid 1px #930403;
+}

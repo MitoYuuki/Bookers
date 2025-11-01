@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+  <body>
+      <h1><b>Books</b></h1>
+      
+      <!-- バリデーションエラーメッセージ（失敗時のみ表示） -->
+      <% if @book.errors.any? %>
+        <%= @book.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li>error: <%= message %></li>
+            <% end %>
+        </ul>
+      <% end %>
+
+      <!-- 登録内容記載箇所 -->
+        <table>
+          <thead>
+            <tr>
+             <th>Title</th>
+              <th>Body</th>
+           </tr>
+         </thead>
+          <tbody>
+            <% @books.each do |book| %>
+              <tr>
+                <td class="book-title"><%= book.title %></td>
+                <td class="book-body"><%= book.body %></td>
+                <td class="actions">
+                  <%= link_to 'Show', book_path(book) %>
+                  <%= link_to 'Edit', edit_book_path(book) %>
+                  <%= link_to 'Destroy', book_path(book), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+      <!-- form_with部分 -->
+      <h2>New book</h2>
+      <%= form_with model: @book, local: true do |f| %>
+      <div class = "Newbook">
+        <%= f.label :title, "Title" %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class = "Newbook">
+        <%= f.label :body, "Body" %><br>
+        <%= f.text_area :body %>
+      </div>
+        <div class = "Newbook">
+        <%= f.submit 'Create Book' %>
+      </div>
+    <% end %>
+    
+
+  </body>
+
+  
+</html>
